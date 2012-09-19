@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Pluxs.Securest.ApiWeb")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A simple signature based REST service with ASP.NET MVC")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Pluxs")]
 [assembly: AssemblyProduct("Pluxs.Securest.ApiWeb")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © Pluxs 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
