@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<clients>
+  <app>
+    <name>iOS Client</name>
+    <appKey>CNs4MN7R</appKey>
+    <appSecret>odUJwYqsm-Wc7MlR6_TzByGDwjzToZrl</appSecret>
+    <status>1</status>
+  </app>
+</clients>
