@@ -20,6 +20,12 @@ namespace Pluxs.Securest.ApiWeb
         public static readonly string XMLContentType = "application/xml";
         public static readonly Encoding ContentEncoding = Encoding.UTF8;
 
+        /// <summary>
+        /// Indicates the max json string length 4MB.
+        /// </summary>
+        static readonly int _maxJsonLength = 8388608;//=2097152 * 4;//4MB * 4
+
+
         public ActionResult ApiResult(object data)
         {
             if (data == null)
@@ -63,6 +69,7 @@ namespace Pluxs.Securest.ApiWeb
         protected virtual ActionResult JsonResultFromData(object data)
         {
             var serializer = new JavaScriptSerializer();
+            serializer.MaxJsonLength = _maxJsonLength;
             serializer.RegisterConverters(new JavaScriptConverter[] { new ExpandoJSONConverter() });
             var json = serializer.Serialize(data);
 
@@ -77,6 +84,7 @@ namespace Pluxs.Securest.ApiWeb
         protected virtual ActionResult JsonpResultFromData(object data, string callback)
         {
             var serializer = new JavaScriptSerializer();
+            serializer.MaxJsonLength = _maxJsonLength;
             serializer.RegisterConverters(new JavaScriptConverter[] { new ExpandoJSONConverter() });
             var json = serializer.Serialize(data);
 
