@@ -129,7 +129,9 @@
     <Content Include="App_Data\airports.xml" />
     <Content Include="App_Data\apps.xml" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -140,6 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Api\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\LocalFileSystem.pubxml" />
+    <Content Include="Views\Shared\NormalError.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -47,6 +47,21 @@ namespace Pluxs.Securest.ApiWeb
                 IController errorController = new Controllers.ErrorController();
                 errorController.Execute(new RequestContext(new HttpContextWrapper(this.Context), routeData));
             }
+            else
+            {
+#if !DEBUG
+                Server.ClearError();
+                Response.Clear();
+                var routeData = new RouteData();
+
+                routeData.Values.Add("action", "NormalError");
+                routeData.Values.Add("controller", "Error");
+
+                IController errorController = new Controllers.ErrorController();
+                errorController.Execute(new RequestContext(new HttpContextWrapper(this.Context), routeData));
+#endif
+            }
+
         }
     }
 }
