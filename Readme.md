@@ -19,10 +19,7 @@
     [Compress]
     public class ProductsController : ApiControllerBase
     {
-        /// <summary>
-        /// GET /api/products/newarrivals
-        /// </summary>
-        /// <returns></returns>
+        /* GET /api/products/newarrivals */
         [AcceptVerbs("GET")]
         public System.Web.Mvc.ActionResult NewArrivals()
         {
