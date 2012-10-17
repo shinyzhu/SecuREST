@@ -14,23 +14,22 @@
 **Endpoint sample**
 
 `
-
+[ApiAuthorize]
+[Compress]
+public class ProductsController : ApiControllerBase
+{
     /// <summary>
     /// GET /api/products/newarrivals
     /// </summary>
-    [ApiAuthorize]
-    [Compress]
-    public class ProductsController : ApiControllerBase
+    /// <returns></returns>
+    [AcceptVerbs("GET")]
+    public System.Web.Mvc.ActionResult NewArrivals()
     {
-        [AcceptVerbs("GET")]
-        public System.Web.Mvc.ActionResult NewArrivals()
-        {
-            var newArrivals = ProductsDataContext.NewArrivals;
+        var newArrivals = ProductsDataContext.NewArrivals;
 
-            return ApiResult(newArrivals);
-        }
+        return ApiResult(newArrivals);
     }
-
+}
 `
 
 **Client sample**
