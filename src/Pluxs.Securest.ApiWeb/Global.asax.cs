@@ -25,43 +25,25 @@ namespace Pluxs.Securest.ApiWeb
         {
             var path = Request.Url.AbsolutePath.ToLower();
 
-            if (path.StartsWith("/api"))
-            {
-                var error = Server.GetLastError();
+            var error = Server.GetLastError();
 
-                Server.ClearError();
+            Server.ClearError();
 
-                //TODO: LOG ERROR TO STORAGE
-                //LogHelper.Error(error);
+            Response.Clear();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.TrySkipIisCustomErrors = true;
 
-                //HANDLE RESPONSE
-                var routeData = new RouteData();
+            var action = path.StartsWith("/api") ? "ApiError" : "NormalError";
 
-                routeData.Values.Add("action", "ApiError");
-                routeData.Values.Add("error", error);
+            //HANDLE RESPONSE
+            var routeData = new RouteData();
 
-                Response.Clear();
-                Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                Response.TrySkipIisCustomErrors = true;
+            routeData.Values.Add("controller", "Error");
+            routeData.Values.Add("action", action);
+            routeData.Values.Add("error", error);
 
-                IController errorController = new Controllers.ErrorController();
-                errorController.Execute(new RequestContext(new HttpContextWrapper(this.Context), routeData));
-            }
-            else
-            {
-#if !DEBUG
-                Server.ClearError();
-                Response.Clear();
-                var routeData = new RouteData();
-
-                routeData.Values.Add("action", "NormalError");
-                routeData.Values.Add("controller", "Error");
-
-                IController errorController = new Controllers.ErrorController();
-                errorController.Execute(new RequestContext(new HttpContextWrapper(this.Context), routeData));
-#endif
-            }
-
+            IController errorController = new Controllers.ErrorController();
+            errorController.Execute(new RequestContext(new HttpContextWrapper(this.Context), routeData));
         }
     }
 }

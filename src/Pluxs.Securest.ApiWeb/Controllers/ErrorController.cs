@@ -8,9 +8,10 @@ namespace Pluxs.Securest.ApiWeb.Controllers
 {
     public class ErrorController : ApiControllerBase
     {
-        public ActionResult NormalError()
+        public ActionResult NormalError(Exception error)
         {
             Response.StatusCode = 400;
+            ViewBag.Error = error.Message;
 
             return View();
         }
