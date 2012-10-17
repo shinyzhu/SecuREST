@@ -12,6 +12,7 @@
 ## Start ##
 
 **Endpoint sample**
+
 `    /// <summary>
     /// GET /api/products/newarrivals
     /// </summary>
@@ -31,4 +32,9 @@
 `
 
 **Client sample**
+
 `curl http://your_api_server/api/products/newarrivals`
+
+## Thank you ##
+
+**Any comments and feedbacks are welcome**
