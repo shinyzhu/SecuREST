@@ -13,7 +13,9 @@
 
 **Endpoint sample**
 
-`    /// <summary>
+`
+
+    /// <summary>
     /// GET /api/products/newarrivals
     /// </summary>
     [ApiAuthorize]
