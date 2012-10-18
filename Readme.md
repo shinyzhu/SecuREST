@@ -13,7 +13,7 @@
 
 **Endpoint sample**
 
-`
+
 
     [ApiAuthorize]
     [Compress]
@@ -29,7 +29,7 @@
         }
     }
 
-`
+
 
 **Client sample**
 
