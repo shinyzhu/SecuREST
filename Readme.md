@@ -6,6 +6,7 @@
 - Serve all requests as api request or custom prefix
 - Support JSON/XML/JSONP data formats as response
 - GZIP/Deflate compress support
+- Auto documentation
 - OAuth 1.0 like client authorization
 - single user authorization not support currently
 
@@ -14,14 +15,12 @@
 **Endpoint sample**
 
 
-
     [ApiAuthorize]
     [Compress]
     public class ProductsController : ApiControllerBase
     {
-        /* GET /api/products/newarrivals */
-        [AcceptVerbs("GET")]
-        public System.Web.Mvc.ActionResult NewArrivals()
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult NewArrivals()
         {
             var newArrivals = ProductsDataContext.NewArrivals;
 

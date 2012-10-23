@@ -7,9 +7,9 @@ using System.Web.Mvc;
 namespace Pluxs.Securest.ApiWeb.Areas.Api.Controllers
 {
     [ApiAuthorize]
+    [Compress]
     public class ProductsController : ApiControllerBase
     {
-        [Compress]
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult NewArrivals(int count = 25)
         {
