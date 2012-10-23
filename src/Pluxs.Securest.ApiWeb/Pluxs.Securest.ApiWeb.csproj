@@ -106,7 +106,9 @@
   <ItemGroup>
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\AirportsController.cs" />
+    <Compile Include="Areas\Api\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ApiControllerBase.cs" />
+    <Compile Include="Controllers\DocController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Extensions\ApiAuthorizeAttribute.cs" />
     <Compile Include="Extensions\CompressAttribute.cs" />
@@ -120,6 +122,7 @@
     </Compile>
     <Compile Include="Models\ApiExceptions.cs" />
     <Compile Include="Models\AppInfo.cs" />
+    <Compile Include="Models\EndpointInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\LocalFileSystem.pubxml" />
     <Content Include="Views\Shared\NormalError.cshtml" />
+    <Content Include="Views\Doc\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

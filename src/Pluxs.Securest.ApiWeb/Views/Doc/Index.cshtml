@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Documentation</title>
+    <style type="text/css">
+        *{margin:0;padding:0}
+        #header{padding:10px;border-bottom: 5px solid #eee}
+        #content{padding:10px}
+        #content ul{}
+        #content ul li{margin-left:2em;}
+        #content ul li ul li{padding:5px}
+        #content ul li ul li:hover{background:#cef}
+        #content ul li ul li:hover a{background:#def}
+        #content ul li ul li span,#content ul li ul li a{display:inline-block}
+        #content ul li ul li span.method{width:4em;}
+        #content ul li ul li a{min-width:30%}
+        #content ul li ul li span.parameters{text-indent:1em}
+        fieldset{margin:10px auto;padding:10px}
+        fieldset ul li{padding:5px;}
+        fieldset ul li:hover{background:#eee}
+        fieldset ul li span{display:inline-block;min-width:8em}
+        .h,small{background:#fc0;font-size:.9em;}
+    </style>
+</head>
+<body>
+
+<div id="header"><h1>Documentation</h1></div>
+
+<div id="content">
+    <div id="endpoints">
+        @{
+            foreach (var endpoint in ViewBag.Endpoints)
+            {
+                <ul>
+                    <li>/api/@endpoint.Name <small class="h">@endpoint.AuthorizeRequiredMessage</small>
+                        <ul>
+                            @{
+                foreach (var action in endpoint.Actions)
+                {
+                    <li>
+                            <span class="method">@action.HttpMethod</span>
+                            <a href="/api/@endpoint.Name/@action.Name">/api/@endpoint.Name/@action.Name</a>
+                            <span class="h">@action.AuthorizeRequiredMessage</span>
+                            <span class="parameters">@action.ParametersString</span>
+                    </li>
+                }
+                                }
+                        </ul>
+                    </li>
+                </ul>
+            }
+        }
+    </div>
+</div>
+
+</body>
+</html>
