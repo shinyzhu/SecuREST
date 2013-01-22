@@ -15,6 +15,7 @@ namespace Pluxs.Securest.ApiWeb
         {
             typeof(string), 
             typeof(DateTime), 
+            typeof(DateTime?),
             typeof(Enum), 
             typeof(decimal), 
             typeof(Guid)
